@@ -1,24 +1,17 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import {connect} from 'react-redux';
+import {fetchRiders} from '../actions/listingAction';
+
 
 class Listing extends Component {
 
-    constructor(props){
-        super(props);
-        this.state={
-            riders: []
-        }
-    }
 
     componentWillMount(){
-        fetch('https://blooming-mesa-21883.herokuapp.com/riders')
-        .then(res=>res.json())
-        .then(data=> this.setState({riders:data.riders}));
+        this.props.fetchRiders();
     }
-    componentWillUnmount() {
-        this.isCancelled = true;
-    }
+    
   render() {
-      const riderListView = this.state.riders.map(rider=>(
+      const riderListView = this.props.list.map(rider=>(
         <li key = {rider.id} className="list-group-item ">
             <div className='container'>
                 <div className='row'>
@@ -64,4 +57,8 @@ class Listing extends Component {
   }
 }
 
-export default Listing;
+const mapStateToProps = state => ({
+    list: state.list.riders
+});
+
+export default connect(mapStateToProps, {fetchRiders})(Listing);

@@ -1,0 +1,2 @@
+export const FETCH_RIDERS = 'FETCH_RIDERS';
+export const REGISTER_RIDER = 'REGISTER_RIDER';
