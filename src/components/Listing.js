@@ -11,7 +11,7 @@ class Listing extends Component {
     }
     
   render() {
-      const riderListView = this.props.list.map(rider=>(
+      const riderListView = this.props.list.riders.map(rider=>(
         <li key = {rider.id} className="list-group-item ">
             <div className='container'>
                 <div className='row'>
@@ -58,7 +58,7 @@ class Listing extends Component {
 }
 
 const mapStateToProps = state => ({
-    list: state.list.riders
+    list: state.list
 });
 
 export default connect(mapStateToProps, {fetchRiders})(Listing);
