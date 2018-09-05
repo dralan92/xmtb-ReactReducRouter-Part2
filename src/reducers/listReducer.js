@@ -13,6 +13,12 @@ export default function( state=initialState, action){
                 ...state,
                 riders: action.payload.riders
             }
+        case REGISTER_RIDER:
+        return {
+            ...state,
+            new_rider: action.payload.createdRider
+        }
+            
         default:
             return state;
         

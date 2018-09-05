@@ -1,4 +1,7 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import {connect} from 'react-redux';
+import {createRiders} from '../actions/registerAction'
 
 class Register extends Component {
 
@@ -12,7 +15,7 @@ class Register extends Component {
 
       gender:'',
       email:'',
-      date_of_birth:'',
+      dateOfBirth:'',
       phone:''
     };
 
@@ -40,22 +43,9 @@ class Register extends Component {
       phone : this.state.phone
     }
 
-    try{
+   //call action
+    this.props.createRiders(new_rider);
 
-        const registering = await window.fetch('https://blooming-mesa-21883.herokuapp.com/riders', {
-        method : 'POST',
-        headers : {
-          'Content-Type' : 'application/json'
-        },
-        body : JSON.stringify(new_rider)
-      });
-      const result = await registering.json();
-      console.log(result);
-      
-
-    }catch(err){
-      console.log(err);
-    }
   }
 
 
@@ -117,4 +107,8 @@ class Register extends Component {
   }
 }
 
-export default Register;
+Register.propTypes = {
+  createRiders : PropTypes.func.isRequired
+
+}
+export default connect(null, {createRiders})(Register);
