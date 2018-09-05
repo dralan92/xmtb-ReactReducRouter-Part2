@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import {fetchRiders} from '../actions/listingAction';
 
@@ -55,6 +56,11 @@ class Listing extends Component {
       
     )
   }
+}
+
+Listing.PropTypes = {
+    fetchRiders : PropTypes.func.isRequired,
+    list : PropTypes.array.isRequired
 }
 
 const mapStateToProps = state => ({
