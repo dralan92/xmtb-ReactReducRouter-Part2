@@ -58,9 +58,9 @@ class Listing extends Component {
   }
 }
 
-Listing.PropTypes = {
+Listing.propTypes = {
     fetchRiders : PropTypes.func.isRequired,
-    list : PropTypes.array.isRequired
+    list : PropTypes.object.isRequired
 }
 
 const mapStateToProps = state => ({

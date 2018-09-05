@@ -8,7 +8,7 @@ const initialState = {
 export default function( state=initialState, action){
     switch(action.type){
         case FETCH_RIDERS:
-            console.log('reducer'); 
+            
             return {
                 ...state,
                 riders: action.payload.riders
