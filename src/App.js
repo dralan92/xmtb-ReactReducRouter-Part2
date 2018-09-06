@@ -6,6 +6,7 @@ import store from './store'
 import Home from './components/Home';
 import Register from './components/Register';
 import Listing from './components/Listing';
+import Login from './components/Login';
 import Error from './components/Error';
 import Navigation from './components/Navigation';
 
@@ -19,6 +20,7 @@ class App extends Component {
         <div>
           <Navigation />
             <Switch>
+              <Route path ='/login' component={Login} />
               <Route path ='/' component={Home} exact />
               <Route path ='/register' component={Register} />
               <Route path ='/listing' component={Listing} />
