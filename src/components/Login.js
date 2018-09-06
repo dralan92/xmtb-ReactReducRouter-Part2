@@ -1,6 +1,9 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import {connect} from 'react-redux';
+import {loginRiders} from '../actions/loginAction';
 
-export default class Login extends Component {
+class Login extends Component {
 
     constructor(props){
         super(props);
@@ -28,6 +31,7 @@ export default class Login extends Component {
     
        //call action
        
+       this.props.loginRiders(logging_rider);
     
       }
   render() {
@@ -64,3 +68,11 @@ export default class Login extends Component {
     )
   }
 }
+
+
+Login.propTypes = {
+    loginRiders : PropTypes.func.isRequired
+   
+  
+  }
+export default connect(null,{loginRiders})(Login);
