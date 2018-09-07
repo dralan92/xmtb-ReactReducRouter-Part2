@@ -64,9 +64,7 @@ class Login extends Component {
           </div>
          
         </form>
-        <div>
-          {this.props.list.current_rider.email}
-        </div>
+       
         </div>
     )
   }
