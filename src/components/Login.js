@@ -64,6 +64,9 @@ class Login extends Component {
           </div>
          
         </form>
+        <div>
+          {this.props.list.current_rider.email}
+        </div>
         </div>
     )
   }
@@ -71,8 +74,13 @@ class Login extends Component {
 
 
 Login.propTypes = {
-    loginRiders : PropTypes.func.isRequired
+    loginRiders : PropTypes.func.isRequired,
+    list : PropTypes.object.isRequired
    
   
   }
-export default connect(null,{loginRiders})(Login);
+
+  const mapStateToProps = state => ({
+    list: state.list
+});
+export default connect(mapStateToProps,{loginRiders})(Login);
