@@ -25,6 +25,24 @@ class Home extends Component {
 					
 					
 				</video>
+        <div className = 'rider_profile'>
+          <div className = 'container'>
+            <div className = 'row'>
+              <div className = 'col'>
+                <h3>Your Profile</h3>
+                <button type="button" >
+                Edit Profile
+                </button><br/>
+              
+                <span>Email: {this.props.list.current_rider.email}</span><br/>
+                <span>Phone: {this.props.list.current_rider.phone}</span><br/>
+                <span>Address: {this.props.list.current_rider.address}</span><br/>
+                <span>Zip: {this.props.list.current_rider.zip}</span><br/>
+              </div>
+            </div>
+          </div> 
+        </div>
+
 
 			</div>
       </div>

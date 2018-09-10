@@ -14,6 +14,7 @@ class Login extends Component {
         };
         this.onChange = this.onChange.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
+        
     }
     onChange(e){
     
@@ -32,9 +33,18 @@ class Login extends Component {
        //call action
        
        this.props.loginRiders(logging_rider);
+      
+       console.log(this.props.list.current_rider.username);
+       
+      
+       
     
       }
+     
   render() {
+   
+    
+
     return (
         <div className='wrapper'>
         <form onSubmit={this.onSubmit}>
@@ -64,7 +74,7 @@ class Login extends Component {
           </div>
          
         </form>
-       
+       {this.props.list.current_rider.username}
         </div>
     )
   }

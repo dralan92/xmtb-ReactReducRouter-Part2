@@ -18,6 +18,7 @@ class Listing extends Component {
                 <div className='row'>
                     <div className='col-sm-2'>
                         <strong>{rider.username}</strong>
+                        
                     </div>
                     <div className='col-sm-2'>
                         <span>Email: {rider.email}</span>
