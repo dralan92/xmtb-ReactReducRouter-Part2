@@ -46,11 +46,25 @@ class Profile extends Component {
             <div>
               <h3 className='reg_header'>Profile of {this.props.list.current_rider.username}</h3>
               <form  onSubmit={this.onSubmit}> 
-              <p>Email : <input name='email' onChange={this.onChange} defaultValue={this.state.email }></input></p>
-              <p>Gender : <input name='gender' onChange={this.onChange} defaultValue={this.state.gender }></input></p>
-              <p>Address : <input name='address' onChange={this.onChange} defaultValue={this.state.address }></input></p>
-              <p>Zip : <input name='zip' onChange={this.onChange} defaultValue={this.state.zip }></input></p>
-              <p>Phone : <input name='phone' onChange={this.onChange} defaultValue={this.state.phone }></input></p>
+              <div className='form-group'>
+              <p>Email : <input name='email' className='form-control' onChange={this.onChange} defaultValue={this.state.email }></input></p>
+              </div>
+              <div className='form-group'>
+              <p>Gender : <input name='gender' className='form-control' onChange={this.onChange} defaultValue={this.state.gender }></input></p>
+
+              </div>
+              <div className='form-group'>
+              <p>Address : <input name='address' className='form-control' onChange={this.onChange} defaultValue={this.state.address }></input></p>
+
+              </div>
+              <div className='form-group'>
+              <p>Zip : <input name='zip' className='form-control' onChange={this.onChange} defaultValue={this.state.zip }></input></p>
+
+              </div>
+              <div className='form-group'>
+              <p>Phone : <input name='phone' className='form-control' onChange={this.onChange} defaultValue={this.state.phone }></input></p>
+
+              </div>
               <button type='submit'>Update</button><br/>
               </form>
             </div>

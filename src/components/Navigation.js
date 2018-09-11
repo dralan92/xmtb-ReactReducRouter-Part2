@@ -1,31 +1,99 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import {connect} from 'react-redux';
 import {NavLink} from 'react-router-dom';
 
 class Navigation extends Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      curr_username : this.props.list.current_rider.username,
+      curr_password : this.props.list.current_rider.password,
+      curr_zip : this.props.list.current_rider.zip,
+      curr_address: this.props.list.current_rider.address,
+
+      curr_gender : this.props.list.current_rider.gender,
+      curr_email : this.props.list.current_rider.email,
+      curr_dateOfBirth : this.props.list.current_rider.dateOfBirth,
+      curr_phone :this.props.list.current_rider.phone
+    };
+
+  }
   render() {
+    let curr_user = this.props.list.current_rider.username;
+    let login;
+    let home;
+    let profile;
+    let listing;
+    let test_nav_item;
+
+    if(curr_user){
+      test_nav_item = <NavLink to='/listing' className='nav-link'>UserIn</NavLink>
+    }else{
+      test_nav_item = <NavLink to='/listing' className='nav-link'>UserOut</NavLink>
+    }
+
+    if(curr_user){
+      login = <NavLink to='/login' className='nav-link'>Logout</NavLink>
+    }else{
+      login = <NavLink to='/login' className='nav-link'>Login</NavLink>
+    }
+
+    if(curr_user){
+      home = <NavLink to='/' className='nav-link'>Home</NavLink>
+    }else{
+      home = <NavLink to='/' className='nav-link'></NavLink>
+    }
+
+    if(curr_user){
+      profile = <NavLink to='/profile' className='nav-link'>Profile</NavLink>
+    }else{
+      profile = <NavLink to='/profile' className='nav-link'></NavLink>
+    }
+    if(curr_user =='admin'){
+   
+      listing = <NavLink to='/listing' className='nav-link'>Listing</NavLink>
+    }else{
+      listing = <NavLink to='/listing' className='nav-link'></NavLink>
+    }
+
     return (
+      
       <ul className='nav justify-content-center nav-pills nav-justified navigation'>
+        
         <li className='nav-item'>
-          <NavLink to='/login' className='nav-link'>Login</NavLink>
+         {login}
         </li>
         <li className='nav-item'>
-          <NavLink to='/' className='nav-link'>Home</NavLink>
+        {home}
         </li>
         <li className='nav-item'>
-          <NavLink to='/profile' className='nav-link'>Profile</NavLink>
+        {profile}
         </li>
         <li className='nav-item'>
           <NavLink to='/register' className='nav-link'>Register</NavLink>
         </li>
         <li className='nav-item'>
-        <NavLink to='/listing' className='nav-link'>Listing</NavLink>
+        {listing}
         </li>
-        
+        <li className='nav-item'>
+        {test_nav_item}
+        </li>
+       
         
         
       </ul>
     )
   }
 }
+Navigation.propTypes = {
+  
+  list : PropTypes.object.isRequired
+ 
 
-export default Navigation;
+}
+
+const mapStateToProps = state => ({
+  list: state.list
+});
+export default connect(mapStateToProps,null)(Navigation);
