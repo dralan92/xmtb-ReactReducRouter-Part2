@@ -21,7 +21,8 @@ class App extends Component {
         <div>
           <Navigation />
             <Switch>
-              <Route path ='/login' component={Login} />
+              
+              <Route path ='/login' component={Login} default/>
               <Route path ='/' component={Home} exact />
               <Route path ='/register' component={Register} />
               <Route path ='/profile' component={Profile} />

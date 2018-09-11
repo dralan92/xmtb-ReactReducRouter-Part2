@@ -15,7 +15,16 @@ class Home extends Component {
     this.onSubmit = this.onSubmit.bind(this);
     
 }
+componentWillMount(){
+  let curr_user = this.props.list.current_rider.username;
+    if(curr_user){
+      //this.props.history.push('/');
 
+    }else{
+      this.props.history.push('/login');
+    }
+
+}
 async onSubmit(e){
   e.preventDefault();
 
@@ -25,7 +34,7 @@ async onSubmit(e){
  
  this.props.logoutRider();
 
- console.log(this.props.list.current_rider.username);
+ this.props.history.push('/login');
  
 
  
@@ -33,6 +42,7 @@ async onSubmit(e){
 }
 
   render() {
+    
     return (
       <div>
        <div className="jumbotron jumbotron-fluid">

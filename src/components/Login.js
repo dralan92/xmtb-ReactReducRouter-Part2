@@ -14,6 +14,8 @@ class Login extends Component {
         };
         this.onChange = this.onChange.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
+        this.login_message = '';
+        this.entered_rider = '';
         
     }
     onChange(e){
@@ -21,9 +23,14 @@ class Login extends Component {
         this.setState({[e.target.name]: e.target.value });
       }
 
+      componentWillMount(){
+        
+        this.login_message = '';
+      }
+
       async onSubmit(e){
         e.preventDefault();
-    
+        
         const logging_rider = {
           username : this.state.username,
           password : this.state.password,
@@ -31,10 +38,13 @@ class Login extends Component {
         }
     
        //call action
-       
+       this.entered_rider = this.state.username;
        this.props.loginRiders(logging_rider);
+       this.login_message = 'Login Failed';
+       
       
-       console.log(this.props.list.current_rider.username);
+       
+
        
       
        
@@ -42,9 +52,16 @@ class Login extends Component {
       }
      
   render() {
+    let curr_rider = this.props.list.current_rider.username;
+    
+    if(curr_rider){
+      this.props.history.push('/');
+    }else{
+      
+      
+    }
    
     
-
     return (
         <div className='wrapper'>
         <form onSubmit={this.onSubmit}>
@@ -68,13 +85,19 @@ class Login extends Component {
             </div>
             <div className='row'>
                   <div className='col'>
+                    <span id='login_message'>{this.login_message}</span>
+                  </div>
+            </div>
+            <div className='row'>
+                  <div className='col'>
                     <button className='form-control' type='submit' className = 'btn reg_button'>Login</button>
                   </div>
             </div>
+            
           </div>
          
         </form>
-       {this.props.list.current_rider.username}
+
         </div>
     )
   }
