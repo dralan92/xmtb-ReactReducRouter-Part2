@@ -6,11 +6,11 @@ export const loginRiders = (logginRider) => dispatch =>{
         .then(res=>res.json())
         .then(data=> {
             
-            let riderFound = false;
+           
             data.riders.map((d)=>{
                 if(logginRider.username == d.username &&
                     logginRider.password == d.password){
-                        riderFound = true;
+                       
                         
                         dispatch({
                             type : LOGIN_RIDER,
@@ -24,7 +24,7 @@ export const loginRiders = (logginRider) => dispatch =>{
             }
                 
             );
-            console.log(riderFound);
+            
             
             
         });
