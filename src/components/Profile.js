@@ -23,6 +23,7 @@ class Profile extends Component {
     this.onSubmit = this.onSubmit.bind(this);
     this.profileID = this.props.list.current_rider.id;
   }
+  
   onChange(e){
     
     this.setState({[e.target.name]: e.target.value });
@@ -36,6 +37,7 @@ class Profile extends Component {
 
    //call action
    this.props.updateRider(this.state,this.profileID);
+   this.props.history.push('/login');
 
   }
   render() {
