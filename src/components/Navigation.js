@@ -25,16 +25,9 @@ class Navigation extends Component {
     let home;
     let profile;
     let listing;
-    let test_nav_item;
-
+    
     if(curr_user){
-      test_nav_item = <NavLink to='/listing' className='nav-link'>UserIn</NavLink>
-    }else{
-      test_nav_item = <NavLink to='/listing' className='nav-link'>UserOut</NavLink>
-    }
-
-    if(curr_user){
-      login = <NavLink to='/login' className='nav-link'>Logout</NavLink>
+      login = <NavLink to='/login' className='nav-link'></NavLink>
     }else{
       login = <NavLink to='/login' className='nav-link'>Login</NavLink>
     }
@@ -76,9 +69,7 @@ class Navigation extends Component {
         <li className='nav-item'>
         {listing}
         </li>
-        <li className='nav-item'>
-        {test_nav_item}
-        </li>
+       
        
         
         

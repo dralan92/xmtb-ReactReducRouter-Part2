@@ -1,4 +1,4 @@
-import { FETCH_RIDERS, REGISTER_RIDER, LOGIN_RIDER, UPDATE_RIDER} from '../actions/types';
+import { FETCH_RIDERS, REGISTER_RIDER, LOGIN_RIDER, UPDATE_RIDER, LOGOUT_RIDER} from '../actions/types';
 const initialState = {
     riders: [],
     new_rider:{},
@@ -28,7 +28,12 @@ export default function( state=initialState, action){
         return {
             ...state
             
-        }    
+        } 
+        case LOGOUT_RIDER:
+        return{
+            ...state,
+            current_rider : action.payload
+        }   
         default:
             return {...state};
         
